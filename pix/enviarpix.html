@@ -1,0 +1,84 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        .floating-label {
+            position: relative;
+            margin-top: 1.5rem;
+        }
+        .floating-label input {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            padding: 0.5rem 0;
+            width: 100%;
+            font-size: 1rem;
+            color: #333;
+            background: transparent;
+        }
+        .floating-label label {
+            position: absolute;
+            top: 0.75rem;
+            left: 0;
+            font-size: 1rem;
+            color: #aaa;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label {
+            top: -0.75rem;
+            left: 0;
+            font-size: 0.75rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="bg-white h-screen flex flex-col">
+    <!-- Header -->
+    <div class="bg-red-600 text-white flex items-center p-4">
+        <i class="fas fa-arrow-left text-xl cursor-pointer" onclick="redirectToPreviousPage()"></i>
+        <h1 class="ml-4 text-xl font-semibold">Pagar</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-grow flex flex-col justify-center items-center px-4">
+        <p class="text-lg text-gray-800 mb-4 text-center">Qual a chave pix de quem vai receber?</p>
+        <div class="w-full max-w-md">
+            <div class="floating-label">
+                <input type="text" id="cpf-cnpj" placeholder=" " class="focus:outline-none focus:border-gray-500" oninput="checkInput()">
+                <label for="cpf-cnpj">Chave pix</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="p-4">
+        <button id="continue-button" class="w-full bg-gray-300 text-gray-600 py-3 rounded-lg cursor-not-allowed" disabled onclick="redirectToNextPage()">Continuar</button>
+    </div>
+
+    <script>
+        function checkInput() {
+            const input = document.getElementById('cpf-cnpj').value;
+            const button = document.getElementById('continue-button');
+            if (input.length >= 5) {
+                button.classList.remove('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
+                button.classList.add('bg-red-600', 'text-white', 'cursor-pointer');
+                button.disabled = false;
+            } else {
+                button.classList.add('bg-gray-300', 'text-gray-600', 'cursor-not-allowed');
+                button.classList.remove('bg-red-600', 'text-white', 'cursor-pointer');
+                button.disabled = true;
+            }
+        }
+
+        function redirectToNextPage() {
+            window.location.href = "valor.html";
+        }
+
+        function redirectToPreviousPage() {
+            window.location.href = "pix.html";
+        }
+    </script>
+</body>
+</html>

