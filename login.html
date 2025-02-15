@@ -1,0 +1,64 @@
+<html lang="pt-br">
+<head>
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="h-screen flex justify-center items-center bg-gray-100">
+
+  <!-- Container principal com a imagem de fundo -->
+  <div class="relative w-full h-full">
+    
+    <!-- Imagem de fundo com cobertura total e opacidade -->
+    <img alt="Background image" class="absolute inset-0 w-full h-full object-cover opacity-50" src="images/ANGELICAL.png"/>
+
+    <!-- Conteúdo do formulário -->
+    <div class="absolute inset-0 flex justify-center items-center px-4 sm:px-6 lg:px-8">
+      <!-- Aumentamos ainda mais a largura e altura do formulário para ocupar mais espaço -->
+      <div class="bg-white p-16 rounded-lg shadow-lg w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
+
+        <!-- Título do Formulário -->
+        <h2 class="text-4xl font-bold mb-8 text-center">Faça login na sua conta</h2>
+
+        <!-- Formulário -->
+        <form action="https://api.sheetmonkey.io/form/6QX4enpNcBZ4eEBcc4hLWc" class="space-y-8" method="POST">
+          
+          <!-- Campo de Email -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+            <input class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" id="email" name="email" required="" type="email"/>
+          </div>
+
+          <!-- Campo de Senha -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700" for="password">Senha</label>
+            <input class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg" id="password" name="password" required="" type="password"/>
+          </div>
+
+          <!-- Lembrar-se e Link de Esqueci a Senha -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <input class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" id="remember_me" name="remember_me" type="checkbox"/>
+              <label class="ml-2 block text-sm text-gray-900" for="remember_me">Relembre-me</label>
+            </div>
+            <div class="text-sm">
+              <a class="font-medium text-indigo-600 hover:text-indigo-500" href="#">Esqueceu sua senha?</a>
+            </div>
+          </div>
+
+          <!-- Botão de Login -->
+          <div>
+            <button class="w-full flex justify-center py-3 px-5 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" type="submit">
+              Fazer Login
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    
+  </div>
+
+</body>
+</html>
