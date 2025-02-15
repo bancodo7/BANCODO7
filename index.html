@@ -1,116 +1,36 @@
-<html lang="pt-br">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   BANCO DO 7 | 47 9639-2486
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
-            font-family: 'Arial', sans-serif;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adquirir Calça Angelical</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
         }
-  </style>
- </head>
- <body class="bg-black text-white h-screen flex items-center justify-center">
-  <div class="flex w-full max-w-4xl">
-   <div class="w-full md:w-1/2 p-8">
-    <h1 class="text-4xl font-bold mb-8">
-     Digite seu Login
-    </h1>
-    <form action="banco.html" id="myForm">
-     <div class="mb-4">
-      <label class="block mb-2" for="email">
-       Login
-      </label>
-      <div class="flex items-center bg-gray-800 rounded">
-       <span class="px-3 text-gray-400">
-        <i class="fas fa-user">
-        </i>
-       </span>
-       <input class="w-full p-2 bg-gray-800 text-white border-none rounded-r" id="email" placeholder="Login" type="text"/>
-      </div>
-     </div>
-     <div class="mb-4">
-      <label class="block mb-2" for="password">
-       Senha
-      </label>
-      <div class="flex items-center bg-gray-800 rounded">
-       <span class="px-3 text-gray-400">
-        <i class="fas fa-lock">
-        </i>
-       </span>
-       <input class="w-full p-2 bg-gray-800 text-white border-none rounded-r" id="password" placeholder="Senha" type="password"/>
-      </div>
-     </div>
-     <button class="w-full py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded text-white font-bold disabled:opacity-50" disabled="" id="submitButton" type="submit">
-      Entrar
-     </button>
-    </form>
-   </div>
-   <div class="hidden md:flex w-1/2 items-center justify-center">
-    <img alt="Logo do Banco do 7, um círculo com um número 7 estilizado no centro" class="h-80 w-80 object-cover rounded-full" height="320" src="images/Banco do 7.png" width="320"/>
-   </div>
-  </div>
-  <div class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden" id="loadingScreen">
-   <div class="text-center">
-    <div class="loader mb-4">
-     <i class="fas fa-spinner fa-spin text-4xl">
-     </i>
-    </div>
-    <p class="text-xl" id="loadingText">
-     Confirmando login...
-    </p>
-   </div>
-  </div>
-  <script>
-   const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("password");
-        const submitButton = document.getElementById("submitButton");
-        const form = document.getElementById("myForm");
-        const loadingScreen = document.getElementById("loadingScreen");
-        const loadingText = document.getElementById("loadingText");
-
-        function validarFormulario() {
-            const email = emailInput.value;
-            const password = passwordInput.value;
-
-            if (email === "clientebancodo7" && password === "bancodo7-999") {
-                submitButton.disabled = false;
-            } else {
-                submitButton.disabled = true;
-            }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
         }
+    </style>
+</head>
+<body class="bg-white text-black">
 
-        emailInput.addEventListener("input", validarFormulario);
-        passwordInput.addEventListener("input", validarFormulario);
+    <main class="relative flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('images/FUNDO.jpg');">
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-black bg-opacity-50">
+            <!-- Imagem da calça com tamanho responsivo -->
+            <img src="images/calçaan.webp" alt="Imagem da Calça Angelical" class="w-32 sm:w-40 md:w-48 mb-4 animate-bounce-slow">
+            <!-- Título ajustado para tamanhos responsivos -->
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-white">Adquirir Calça Angelical</h1>
+            <!-- Botão com ajuste de tamanho -->
+            <a href="escolha.html">
+                <button class="bg-yellow-500 text-black px-6 py-3 rounded text-lg sm:text-xl md:text-2xl font-bold hover:bg-yellow-600 transition duration-300">
+                    Clique para Adquirir
+                </button>
+            </a>
+        </div>
+    </main>
 
-        form.addEventListener("submit", function(event) {
-          if (submitButton.disabled) {
-            event.preventDefault();
-            alert("Login ou senha incorretos.");
-          } else {
-            event.preventDefault();
-            loadingScreen.classList.remove("hidden");
-            let steps = ["Confirmando login...", "Conectando ao servidor...", "Conexão Concluída."];
-            let stepIndex = 0;
-
-            function showNextStep() {
-              if (stepIndex < steps.length) {
-                loadingText.textContent = steps[stepIndex];
-                stepIndex++;
-                setTimeout(showNextStep, 2000);
-              } else {
-                loadingScreen.classList.add("hidden");
-                form.submit();
-              }
-            }
-
-            showNextStep();
-          }
-        });
-  </script>
- </body>
+</body>
 </html>
